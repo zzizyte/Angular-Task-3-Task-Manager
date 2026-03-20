@@ -58,8 +58,9 @@ Display data using:
 
 Use:
 
-- `@Input()` to pass the selected task to child components
-- `@Output()` to notify the parent when a task is selected
+- `input` to pass the selected task to child components
+- `output` to notify the parent when a task is selected
+- computed
 
 ---
 
@@ -77,18 +78,6 @@ Log messages when:
 
 ---
 
-### 4. Modules
-
-Organize your app with Angular modules.
-
-Example:
-
-- `AppModule`
-- `TasksModule`
-
-Put task-related components in the tasks module.
-
----
 
 ### 5. Template Control Flow
 
@@ -129,7 +118,7 @@ Use the pipe in templates.
 
 ### 8. Template Variables & Filtering
 
-Add an input field to filter tasks.
+Add a sort button witch sort
 
 Use a **template reference variable** to read the value.
 
@@ -211,6 +200,10 @@ see formatted values through a custom pipe
 
 
 Task List SCSS
+
+
+
+
 button {
   width: 100%;
   padding: 0.6rem;
@@ -234,7 +227,13 @@ button.active {
 }
 
 
+
+
+
 Task Detail SCSS
+
+
+
 :host {
   display: block;
 }
@@ -281,7 +280,13 @@ p {
   color: #cbd5e1;
 }
 
+
+
 Panel SCSS
+
+
+
+
 .panel {
   padding: 1.25rem;
   background-color: #1e293b;
@@ -292,6 +297,7 @@ Panel SCSS
 .panel-host {
   display: block;
 }
+
 
 
 App SCSS
