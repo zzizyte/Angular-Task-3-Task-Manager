@@ -13,20 +13,18 @@ import { LoggingService } from '../logging.service';
 })
 export class TaskList {
   taskList = DUMMY_TASKS;
-  selectedIdTask?: TaskModel;
-  isSelected: boolean = false;
+  selectedTask?: TaskModel;
   loggingService = inject(LoggingService);
 
-  selectTask(selectedItemId: string) {
-    this.isSelected = !this.isSelected;
-    this.selectedIdTask = this.taskList.find((task) => task.id === selectedItemId);
+  selectTask(task: TaskModel) {
+    this.selectedTask = this.selectedTask?.id === task.id ? undefined : task;
     this.loggingService.onClickLog();
   }
 
   updateTask(selectedStatus: TaskModel['status']) {
     this.taskList = this.taskList.map((task) =>
-      task.id === this.selectedIdTask?.id ? { ...task, status: selectedStatus } : task,
+      task.id === this.selectedTask?.id ? { ...task, status: selectedStatus } : task,
     );
-    this.selectedIdTask = this.taskList.find((task) => task.id === this.selectedIdTask?.id);
+    this.selectedTask = this.taskList.find((task) => task.id === this.selectedTask?.id);
   }
 }

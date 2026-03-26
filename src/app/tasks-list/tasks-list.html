@@ -2,13 +2,13 @@
   <ul>
     @for (task of taskList; track task.id) {
       <li>
-        <button (click)="selectTask(task.id)">
+        <button (click)="selectTask(task)">
           <app-task [task]="task" />
         </button>
       </li>
     }
   </ul>
-  @if (isSelected) {
-    <app-task-detail [task]="selectedIdTask" (newStatusTask)="updateTask($event)" />
+  @if (selectedTask) {
+    <app-task-detail [task]="selectedTask" (newStatusTask)="updateTask($event)" />
   }
 </div>
