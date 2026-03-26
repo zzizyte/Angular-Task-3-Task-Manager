@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-panel',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './panel.scss',
 })
 export class Panel {
-
+  loggingService = inject(LoggingService);
+  ngOnInit() {
+    this.loggingService.onInitLog();
+  }
 }

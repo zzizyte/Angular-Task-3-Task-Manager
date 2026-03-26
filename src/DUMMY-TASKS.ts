@@ -1,4 +1,6 @@
-export const DUMMY_TASKS = [
+import { TaskModel } from "./app/tasks-list/task/task-model";
+
+export const DUMMY_TASKS: TaskModel[] = [
   {
     id: 't1',
     title: 'Finish Angular lesson',

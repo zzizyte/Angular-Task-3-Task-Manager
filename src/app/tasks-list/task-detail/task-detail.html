@@ -1,0 +1,7 @@
+<aside>
+  <button (click)="isDone()">
+    {{ task()?.status }}
+  </button>
+  <p>{{ task()?.description }}</p>
+  <p>{{ task()?.priority | cap }}</p>
+</aside>
