@@ -3,12 +3,12 @@ import { LoggingService } from '../logging.service';
 
 @Component({
   selector: 'app-panel',
-  imports: [],
   templateUrl: './panel.html',
   styleUrl: './panel.scss',
 })
 export class Panel {
   loggingService = inject(LoggingService);
+
   ngOnInit() {
     this.loggingService.onInitLog();
   }

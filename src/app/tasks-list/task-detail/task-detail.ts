@@ -12,12 +12,20 @@ import { CapitalizePipe } from '../../Capitalize.pipe';
 })
 export class TaskDetail {
   task = input<TaskModel>();
-  newStatusTask = output<TaskModel['status']>();
+  newStatusTask = output<TaskModel>();
   loggingService = inject(LoggingService);
 
   isDone() {
-    const newStatus: TaskModel['status'] = this.task()?.status === 'todo' ? 'done' : 'todo';
-    this.newStatusTask.emit(newStatus);
+    const currentTask = this.task();
+
+    if (!currentTask) return;
+
+    const newStatus: TaskModel['status'] = currentTask.status === 'todo' ? 'done' : 'todo';
+    const newTask: TaskModel = {
+      ...currentTask,
+      status: newStatus,
+    };
+    this.newStatusTask.emit(newTask);
   }
   ngOnDestroy() {
     this.loggingService.onDestructLog();

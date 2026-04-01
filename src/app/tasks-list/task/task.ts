@@ -4,7 +4,6 @@ import { TaskModel } from './task-model';
 
 @Component({
   selector: 'app-task',
-  imports: [],
   templateUrl: './task.html',
 })
 export class Task {
